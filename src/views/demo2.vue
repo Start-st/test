@@ -3,7 +3,7 @@
     
     <div class="top">
         
-        <div>
+        <div class="top1">
           <p class="date">{{ date }}</p>
           <img class="p2" v-bind:src="imgUr2">
           <img class="p1" v-bind:src="imgUrl">
@@ -16,7 +16,7 @@
         </div>
         <div class="top-t2">
         <swipe  v-model="index" style="height: 150px;border-radius: 25px; ;">
-          <swipe-item style="height: 150px;" v-for="site in sites" :key="site" ><img class="swipe" :src="site.imgUrl" >
+          <swipe-item style="height: 150px;" v-for="(site,index) in sites" :key="index" ><img class="swipe" :src="site.imgUrl" >
         </swipe-item>
       </swipe>
       </div>
@@ -25,22 +25,27 @@
       <div class="center">
         <span>{{text}}</span>
         <ul class="slide-box">
-          <li class="slide-item" v-for="item in items" :key="item">
+          <li class="slide-item" v-for="(item,index) in items" :key="index">
             <img :src="item.imgUrl" >
           </li>          
         </ul>        
       </div>
       <div class="center2">
-        <span>{{text2}}</span>      
-        <p>{{text3}}</p>
-        <img class="p8" :src="imgUr6" >
+        <div class="center2_top">
+          <span>{{text2}}</span>
+          <div class="center2_right">    
+            <p>{{text3}}</p>
+            <img class="p8" :src="imgUr6" >
+            
+          </div>  
+        </div>
         <ul>
           <li >
             <img class="p8img1" :src="imgUr17">
             <span>水精灵</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
           </li>
@@ -49,7 +54,7 @@
             <span>风精灵</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
             </li>
@@ -58,7 +63,7 @@
             <span>喵精灵</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
             </li>
@@ -67,7 +72,7 @@
             <span>火精灵</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
             </li>
@@ -76,7 +81,7 @@
             <span>出生地1</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
             </li>
@@ -85,7 +90,7 @@
             <span>出生地2</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
           </li>
@@ -94,7 +99,7 @@
             <span>出生地3</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
             </li>
@@ -103,7 +108,7 @@
             <span>阿黛尔</span>
             <p>图片来源：Msea</p>
             <div class="p8imgdiv">
-              <img class="p8img2"  v-for="site2 in site2s" :key="site2"  :src="site2.imgUrl">
+              <img class="p8img2"  v-for="(site2,index) in site2s" :key="index"  :src="site2.imgUrl">
               <b>4.3</b>
             </div>
             </li>
@@ -111,10 +116,12 @@
       </div>
    
       <div class="center3">
+        <div class="center3_but">
         <div class="but3">
            <div>
            <p><img class="p6" v-bind:src="imgUr2"></p>
            </div>
+          </div>
           </div>
        <div class="buttom">
         <div  class="but1">
@@ -198,7 +205,11 @@ export default {
 
 
 <style scoped lang="less">
-
+.top1{
+  display: flex;
+  justify-content:flex-start;
+  height: 50px;
+}
 .date{
 
   margin: 15px;
@@ -208,13 +219,14 @@ export default {
   color: white;;
 }
 .top2{
+  display:flex;
+ justify-content:flex-start;
+ height: 50px;
 
- padding-top: 50px;
 }
 .loc{
-  float: left;
   margin-top: 5px;
-  width: 70px;
+  margin-left: 5px;
   font-size: 18px;
   color: white;;
 }
@@ -233,58 +245,51 @@ export default {
 }
 .p1{
   margin-top: 15px;
-  position: relative;
-  right: 30px;
-  float: right;
+  position: absolute;
+  right: 70px;
   height: 20px;
   width: 20px;
 }
 .p2{
   margin-top: 15px;
-  position: relative;
+
   right: 25px;
-  float: right;
+   position: absolute;
   height: 22px;
   width: 22px;
 }
 .p3{
-  margin-left: 25px;
 
-   float: left;
+  margin-left: 25px;
   height: 25px;
   width: 25px;
 }
+.p7{
+  margin-top:7px;
+  width: 20px;
+  height: 20px;
+}
 .top-t2{
-  margin-top: 60px;
   margin-left: 5%;
   height: 150px;
   width: 90%;
   
 }
-.center3{
-    height: 145px;
-    margin: 0 auto;
-    bottom:0px;
-    z-index:9999;
-    position:fixed;
-    width:100%;
 
- }
 .buttom{
 margin-top: 85px;
-
 border-top-left-radius: 30px;
 border-top-right-radius: 30px;
 height:60px;
 background: white;
 box-shadow:0px -1px 10px 5px #dfdfdf;
-
+display: flex;
+flex-direction: row;
 }
 .but1{
-  float: left;
-  margin-left: 50px;
-
-  width: 30px;
+  
+ 
+  width: 50%;
   height: 100px;
 
 }
@@ -298,9 +303,11 @@ box-shadow:0px -1px 10px 5px #dfdfdf;
 
 }
 .but2{
-  float: right;
-  margin-right: 50px;
-  width: 30px;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  width: 50%;
   height: 100px;
 
 }
@@ -324,13 +331,25 @@ box-shadow:0px -1px 10px 5px #dfdfdf;
   width: 30px;
   margin-bottom: 5px;
 }
+.center3{
+    height: 145px;
+    margin: 0 auto;
+    bottom:0px;
+    z-index:9999;
+    position:fixed;
+    width:100%;
+
+ }
+ .center3_but{
+   display: flex;
+   justify-content: center;
+ }
 .but3{
-  
+
   position: absolute;
-
-  margin-left: 40%;
   margin-top: 45px;
-
+  display: flex;
+  justify-content: center;
 }
 .but3 div{
 
@@ -359,51 +378,61 @@ box-shadow:0px -1px 10px 5px #dfdfdf;
 
 
 }
-.p7{
-  margin-top: 7px;
-   float: left;
-  width: 20px;
-  height: 20px;
-}
+
 .center{
+
+  display: flex;
+  flex-direction: column;
   margin:0 auto;
-  height: 150px;
+  height: 180px;
   width: 90%;
-  border:1px solid white;
+
   margin-top: 20px;
 }
 .center span{
+  
   font-size: 16px;
-   font-weight: bold;
-  float: left;
+  font-weight: bold;
+  width: 80px;
+
 }
 .center2{
   margin:0 auto;
-  height: 900px;
+  height: 1000px;
   width: 90%;
-  border:1px solid white;
+
   margin-top: 20px;
 
 }
+.center2_top{
+
+  display: flex;
+
+}
+.center2_right{
+  margin-left: auto;
+
+  display: flex;
+  
+}
 .center2 span{
+  padding:5px;
+
   font-size: 16px;
   font-weight: bold;
-  float: left;
+
 }
-.center2 p{
+.center2_top p{
   font-size: 15px;
   font-weight: bold;
-  float: right;
   color: dimgray;
 }
 .p8{
   margin: 5px;
-  float: right;
   height: 15px;
   width: 15px;
 }
 .swipe{
- 
   height: 150px;
   width: 100%;
 }
@@ -421,7 +450,7 @@ ul,li{
 
 .slide-box{
 
-            margin-top:40px;
+
 
             display: -webkit-box;
 
@@ -434,6 +463,7 @@ ul,li{
         }
 
         .slide-item{
+          padding-top: 20px;
 
             width: 120px;
 
@@ -451,6 +481,7 @@ ul,li{
        
 
 .center2 ul{
+
   margin-top: 25px;
   width: 100%;
 }
@@ -470,7 +501,7 @@ ul,li{
 .center2 ul li .p8img1{
   border-radius: 10px;
   margin: 0 auto;
-  height: 80ox;
+  height: 80px;
   width: 120px;
 
 }
