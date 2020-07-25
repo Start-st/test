@@ -524,9 +524,9 @@ ul,li{
   margin-top: 5px;
 }
 .p8img2{
+  float: left;
   height: 15px;
   width: 15px;
-  float: left;
 }
 .p8imgdiv b{
   font-size: 10px;

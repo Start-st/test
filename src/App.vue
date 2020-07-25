@@ -4,13 +4,33 @@
       
     </div>
     <router-view/>
+    
   </div>
 </template>
-
+<script>
+export default{
+    data(){
+        return {
+          
+      }
+    },
+    computed:{
+    },
+    methods:{
+     
+    },
+    created(){
+      
+    },
+    mounted(){
+    }
+}
+</script>
 <style lang="less">
 body{
   margin: 0;
   padding: 0;
+    background-color:#fafafa;
 }
 #app {
  
